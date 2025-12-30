@@ -27,7 +27,7 @@ if audio_file and api_key:
         with st.spinner("Listening and writing prescription..."):
             try:
                 # Upload file to Gemini
-                model = genai.GenerativeModel('gemini-1.5-flash')
+                model = genai.GenerativeModel("gemini-flash-latest")
                 
                 # The Golden Prompt Logic (In Code)
                 prompt = """
