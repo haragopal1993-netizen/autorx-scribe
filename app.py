@@ -5,10 +5,6 @@ import os
 # 1. Page Config
 st.set_page_config(page_title="AutoRx Scribe", page_icon="🩺")
 
-# ---------------------------------------------------------
-# ✅ CHANGE HERE: API Key Setup (From Secrets)
-# జడ్జెస్ కీ ఎంటర్ చేయక్కర్లేదు, ఆటోమేటిక్ గా తీసుకుంటుంది.
-# ---------------------------------------------------------
 try:
     api_key = st.secrets["GOOGLE_API_KEY"]
     genai.configure(api_key=api_key)
@@ -33,8 +29,7 @@ if audio_file:
         with st.spinner("Listening and writing prescription..."):
             try:
                 # Upload file to Gemini
-                model = genai.GenerativeModel("gemini-1.5-flash") # Model update chesanu (latest stable version)
-                
+                model = genai.GenerativeModel("gemini-flash-latest")                 
                 # The Golden Prompt Logic
                 prompt = """
                 You are a medical scribe. Listen to this audio conversation between a doctor and patient.
